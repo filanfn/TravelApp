@@ -19,6 +19,7 @@ class DatabaseSeeder extends Seeder
             CustomerSeeder::class,
             CurrencySeeder::class,
             GuideSeeder::class,
+            UserSeeder::class
         ]);
 
         // Tables with foreign keys
