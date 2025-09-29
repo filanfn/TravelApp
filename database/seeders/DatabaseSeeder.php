@@ -15,6 +15,7 @@ class DatabaseSeeder extends Seeder
     {
         // Independent tables first
         $this->call([
+            RoleSeeder::class,
             DestinationSeeder::class,
             CustomerSeeder::class,
             CurrencySeeder::class,
