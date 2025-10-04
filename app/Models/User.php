@@ -46,4 +46,9 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+    public function guideProfile()
+    {
+        return $this->hasOne(\App\Models\Guide::class, 'user_id');
+    }
 }
