@@ -44,6 +44,10 @@
                                 {{ __('Permintaan Assignment') }}
                             </x-nav-link>
 
+                            <x-nav-link :href="route('admin.users.index')" :active="request()->routeIs('admin.users.*')">
+                                {{ __('Management User') }}
+                            </x-nav-link>
+
                             {{-- Anda bisa menambahkan link lain di sini, misalnya untuk booking --}}
                             {{-- <x-nav-link href="#">
                                     {{ __('Manage Bookings') }}

@@ -27,6 +27,7 @@ Route::middleware(['auth', 'role:admin'])->prefix('admin')->name('admin.')->grou
     Route::get('/assignment-requests', [App\Http\Controllers\Admin\AssignmentController::class, 'index'])->name('assignments.requests');
     Route::patch('/assignment-requests/{assignment}/approve', [App\Http\Controllers\Admin\AssignmentController::class, 'approve'])->name('assignments.approve');
     Route::patch('/assignment-requests/{assignment}/reject', [App\Http\Controllers\Admin\AssignmentController::class, 'reject'])->name('assignments.reject');
+    Route::resource('/users', App\Http\Controllers\Admin\UserController::class);
 });
 
 // route untuk guide

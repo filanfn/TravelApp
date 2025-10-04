@@ -29,5 +29,11 @@ class UserSeeder extends Seeder
             'password' => bcrypt('password123'), // default password
         ]);
         $user->assignRole('user');
+        // Tambahkan 20 user dummy dengan role bervariasi
+        $roles = ['admin', 'guide', 'user'];
+        User::factory(20)->create()->each(function ($user) use ($roles) {
+            $role = $roles[array_rand($roles)];
+            $user->assignRole($role);
+        });
     }
 }
