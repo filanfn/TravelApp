@@ -13,28 +13,21 @@ class GuideAssignmentSeeder extends Seeder
             [
                 'booking_id' => 1,
                 'guide_id' => 1,
+                'status' => 'pending',
                 'assigned_date' => '2025-12-15',
             ],
             [
                 'booking_id' => 2,
                 'guide_id' => 2,
+                'status' => 'pending',
                 'assigned_date' => '2025-11-10',
             ],
             [
                 'booking_id' => 3,
                 'guide_id' => 3,
+                'status' => 'pending',
                 'assigned_date' => '2025-12-01',
-            ],
-            [
-                'booking_id' => 4,
-                'guide_id' => 4,
-                'assigned_date' => '2025-11-20',
-            ],
-            [
-                'booking_id' => 5,
-                'guide_id' => 5,
-                'assigned_date' => '2025-12-10',
-            ],
+            ]
         ];
 
         foreach ($assignments as $assignment) {

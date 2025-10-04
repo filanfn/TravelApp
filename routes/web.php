@@ -20,14 +20,23 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
+// route untuk admin
 Route::middleware(['auth', 'role:admin'])->prefix('admin')->name('admin.')->group(function () {
     Route::get('/dashboard', [AdminDashboardController::class, 'index'])->name('dashboard');
+    Route::resource('guides', App\Http\Controllers\Admin\GuideController::class);
+    Route::get('/assignment-requests', [App\Http\Controllers\Admin\AssignmentController::class, 'index'])->name('assignments.requests');
+    Route::patch('/assignment-requests/{assignment}/approve', [App\Http\Controllers\Admin\AssignmentController::class, 'approve'])->name('assignments.approve');
+    Route::patch('/assignment-requests/{assignment}/reject', [App\Http\Controllers\Admin\AssignmentController::class, 'reject'])->name('assignments.reject');
 });
 
+// route untuk guide
 Route::middleware(['auth', 'role:guide'])->prefix('guide')->name('guide.')->group(function () {
     Route::get('/dashboard', [GuideDashboardController::class, 'index'])->name('dashboard');
+    Route::get('/available-jobs', [App\Http\Controllers\Guide\JobController::class, 'index'])->name('jobs.available');
+    Route::post('/jobs/{booking}/request', [App\Http\Controllers\Guide\JobController::class, 'requestAssignment'])->name('jobs.request');
 });
 
+// route untuk user
 Route::middleware(['auth', 'role:user'])->prefix('user')->name('user.')->group(function () {
     Route::get('/dashboard', [UserDashboardController::class, 'index'])->name('dashboard');
 });

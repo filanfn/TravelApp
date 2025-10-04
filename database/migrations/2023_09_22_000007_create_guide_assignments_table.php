@@ -12,6 +12,7 @@ return new class extends Migration
             $table->id('assignment_id');
             $table->foreignId('booking_id')->constrained('bookings', 'booking_id');
             $table->foreignId('guide_id')->constrained('guides', 'guide_id');
+            $table->string('status')->default('pending');
             $table->date('assigned_date');
             $table->timestamps();
         });
